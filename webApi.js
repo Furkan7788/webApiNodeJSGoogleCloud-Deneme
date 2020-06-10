@@ -15,15 +15,13 @@ const client = new Client({
     let result = {}
     try{
     const vale = await readAll();
-    res.send(vale);
+    res.send(vale);//stringe donusturuldu angular da direkt json olarak alabilirsin.  
     result.success = true;
     }    
     catch(e){
         result.success = false;
-    }
-    finally{
         res.header("content-type", "application/json")
-        res.send(JSON.stringify(result))//stringe donusturuldu angular da direkt json olarak alabilirsin.   
+        res.send(JSON.stringify(result)) 
     }
   })
 
@@ -36,11 +34,10 @@ app.get("/getBook", async  (req, res) => {
     }    
     catch(e){
         result.success = false;
-    }
-    finally{
         res.header("content-type", "application/json")
-        res.send(JSON.stringify(result))//stringe donusturuldu angular da direkt json olarak alabilirsin.   
+        res.send(JSON.stringify(result)) 
     }
+   
 })
 app.get("/getBookById",async (req,res) => {
     let result = {}
@@ -52,11 +49,10 @@ app.get("/getBookById",async (req,res) => {
     }    
     catch(e){
         result.success = false;
-    }
-    finally{
         res.header("content-type", "application/json")
-        res.send(JSON.stringify(result))//stringe donusturuldu angular da direkt json olarak alabilirsin.   
+        res.send(JSON.stringify(result)) 
     }
+   
 })
 
 app.post("/addBook", async (req,res) => {
@@ -68,11 +64,10 @@ app.post("/addBook", async (req,res) => {
         }
         catch(e){
             result.success =false;
-        }
-        finally{
             res.header("content-type", "application/json")
-            res.send(JSON.stringify(result))
+            res.send(JSON.stringify(result)) 
         }
+        
 })
 
 app.delete("/deleteBook", async (req,res) => {
@@ -86,11 +81,10 @@ app.delete("/deleteBook", async (req,res) => {
     }
     catch(e){
         result.success =false;
-    }
-    finally{
         res.header("content-type", "application/json")
-        res.send(JSON.stringify(result))
+        res.send(JSON.stringify(result)) 
     }
+   
 
 })
 
