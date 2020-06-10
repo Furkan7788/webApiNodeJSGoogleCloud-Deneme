@@ -11,6 +11,22 @@ const client = new Client({
     port: 5432,
   });
 
+  app.get('/' , async (req,res) => {
+    let result = {}
+    try{
+    const vale = await readAll();
+    res.send(vale);
+    result.success = true;
+    }    
+    catch(e){
+        result.success = false;
+    }
+    finally{
+        res.header("content-type", "application/json")
+        res.send(JSON.stringify(result))//stringe donusturuldu angular da direkt json olarak alabilirsin.   
+    }
+  })
+
 app.get("/getBook", async  (req, res) => {
     let result = {}
     try{
